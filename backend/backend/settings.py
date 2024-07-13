@@ -62,7 +62,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware", 
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,8 +143,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINSCORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Allow localhost:3000 to make cross-origin requests.
-    "https://example.com",    # Replace this with the actual domain you want to allow.
-]
+CORS_ALLOW_ALL_ORIGINS = True  # For development
 CORS_ALLOWS_CREDENTIALS = True  

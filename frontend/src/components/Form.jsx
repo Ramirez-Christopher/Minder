@@ -2,6 +2,7 @@ import { useState } from 'react';
 import api from "../api";
 import {ACCESS_TOKEN, REFRESH_TOKEN} from "../constants";
 import { useNavigate } from 'react-router-dom';
+import "../styles/Forms.css";
 
 function Form({route, method}) {
     const [username, SetUserName] = useState("");
@@ -17,7 +18,7 @@ function Form({route, method}) {
 
         try{
             const res = await api.post(route, { username, password});
-            if (method == "Login") {
+            if (method == "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
                 navigate("/");
@@ -50,7 +51,7 @@ function Form({route, method}) {
             className='form-input'
             type="password"
             value={password}
-            onChange={(e) => SetPassWord(e.target.value)}
+            onChange={(e) => SetPassword(e.target.value)}
             placeholder="Password"
         />
 
@@ -59,3 +60,5 @@ function Form({route, method}) {
         </button>
     </form>
 }
+
+export default Form;
